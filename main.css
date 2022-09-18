@@ -23,8 +23,9 @@
     top: 0px;
     bottom: 0;
     z-index: -1;
-    height: -webkit-fill-available;
-  }
+ height: 100vh;
+    min-height: -webkit-fill-available;  
+}
   
   .bottom {
     position: fixed;
