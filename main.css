@@ -5,14 +5,8 @@
   height: 100vh;
   width: 100vw;
   position: relative;
+  height: -webkit-fill-available;
 }
- body {
-    height: 100vh;
-    min-height: -webkit-fill-available;
-  }
- html {
-    height: -webkit-fill-available;
-  }
 
   #bgvideo {
     width: 100vw;
