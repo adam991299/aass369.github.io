@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+  #bgvideo {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+  .bottom {
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    left: 0;
+    bottom: 0;
+  }
+
+  #card {
+    animation: cssAnimation 0s 3s forwards;
+    margin-bottom: 10%;
+  }
+
+  .front {
+    border-radius: 30px;
+  }
+
+  .bild {
+    width: 100%;
+  }
+
