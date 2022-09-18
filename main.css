@@ -17,7 +17,7 @@
   #bgvideo {
     width: 100vw;
     object-fit: cover;
-    position: fixed;
+    position: relative;
     left: 0;
     right: 0;
     top: 0px;
