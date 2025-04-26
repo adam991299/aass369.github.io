@@ -1,0 +1,62 @@
+    /* 1. Återställ marginaler */
+    body { margin: 0; }
+
+    /* 2. Layout: kolumn med fixerad header + flexibel main-yta */
+    body { display: flex; flex-direction: column; height: 100vh; }
+
+    header {
+        position: fixed;
+        bottom: 0;
+        left: 0;           /* bra att ha med när du anger width */
+        width: 90vw;       /* ← det här är det som saknades */
+        height: 5vh;       /* eller ett fast px-värde */
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        z-index: 1000;
+      
+        /* centrera motivet */
+        background: url('kortknapp.png') center/contain no-repeat;
+    }
+
+    main {
+      flex: 1;                 /* fyll resterande höjd */
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 3. “Lilla skärmen” – ett iframe-fönster */
+    .embed-frame {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    #overlay {
+        position: fixed;
+        inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
+        background: rgba(0,0,0,.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;        /* gömd initialt */
+        opacity: 0;
+        transition: opacity .25s ease;
+        z-index: 2000;
+      }
+      
+      #overlay.show {
+        visibility: visible;
+        opacity: 1;
+      }
+      #overlay.hide {
+        visibility: hidden;
+        opacity: 1;
+      }
+      /* Själva stora bilden */
+      #overlay img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;       /* eller cover om du vill fylla hela rutan */
+      }
