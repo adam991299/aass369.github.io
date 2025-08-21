@@ -33,30 +33,182 @@
 
 
 
-    #overlay {
-        position: fixed;
-        inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
-        background: rgba(0,0,0,.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        visibility: hidden;        /* gömd initialt */
-        opacity: 0;
-        transition: opacity .25s ease;
-        z-index: 2000;
-      }
-      
-      #overlay.show {
-        visibility: visible;
-        opacity: 1;
-      }
-      #overlay.hide {
-        visibility: hidden;
-        opacity: 1;
-      }
-      /* Själva stora bilden */
-      #overlay img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;       /* eller cover om du vill fylla hela rutan */
-      }
+/* --- Overlay (svart bakgrund) --- */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: black;           /* helsvart bakgrund */
+  display: none;               /* gömd initialt */
+  place-items: center;         /* centrerar innehållet */
+  z-index: 2000;
+}
+
+#overlay.show { display: grid; }
+
+/* --- Inre wrapper (kort + formulär) --- */
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 92vw;
+}
+
+/* --- Stängknapp --- */
+.close {
+  align-self: flex-end;
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* --- Kortet --- */
+.card {
+  position: relative;
+  display: inline-block;
+  max-width: 92vw;
+  max-height: 70vh;            /* lämna plats för formuläret */
+}
+
+.card img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  width: auto;
+}
+
+/* --- Texten på kortet (samma vertikala position) --- */
+.card-text {
+  -webkit-font-smoothing: antialiased;   /* WebKit (Chrome/Safari) */
+  -moz-osx-font-smoothing: grayscale;    /* Firefox */
+  text-rendering: optimizeLegibility;    /* bättre kerning/antialiasing */
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 22%;                  /* justera vertikal startposition */
+  left: 38%;                 /* justera horisontell position */
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0px;                 /* avstånd mellan namn och personnummer */
+
+  writing-mode: vertical-rl; /* gör texten vertikal (uppifrån → nedåt) */
+  text-orientation: mixed;   /* bokstäverna skrivs rätt väg */
+
+  color: #fff;
+  font-weight: 100;
+  font-size: 1rem;         /* ungefär samma storlek som första kortet */
+  text-shadow: 0 0 1px rgba(0,0,0,.6); /* gör texten tydlig */
+}
+
+.card-text span {
+  /* varje rad (namn / pnr) */
+  display: inline-block;
+}
+
+/* --- Formulär under kortet --- */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  width: min(700px, 92vw);
+}
+
+.controls label {
+  color: #fff;
+  display: grid;
+  gap: 4px;
+  font-size: 0.95rem;
+}
+
+.controls input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #111;
+  color: #fff;
+}
+
+.controls button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 0;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.startform {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.startform label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.startform input {
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.startform button {
+  padding: 6px 12px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Liten knapp i hörnet */
+#openForm {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2100;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Formulär-overlay */
+#formOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  place-items: center;
+  z-index: 2000;
+}
+
+#formOverlay.show {
+  display: grid;
+}
+
+#formOverlay .controls {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  color: #fff;
+  width: 300px;
+}

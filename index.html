@@ -16,24 +16,47 @@
 </head>
 
 <body>
-
-
   <main>
-    <!-- Byt src till ågot du får bädda in -->
+        <button id="openForm" onclick="visaForm()">⚙️</button>
+
+
+    <!-- Iframe eller annan innehåll -->
     <iframe
       class="embed-frame"
       src="https://mecenat.com/se"
       title="Inbäddad sida">
     </iframe>
 
-    <header onclick="ta()">
-        
-      </header>
+    <!-- Knappen som öppnar kortet -->
+    <header onclick="ta()"></header>
 
-    <div id="overlay" onclick="bort()">
-        <img src="fullsize.jpg" alt="Större bild">
+    <div id="formOverlay" onclick="stängForm()">
+      <form class="controls" onsubmit="return sparaData(event)" onclick="event.stopPropagation()">
+        <label>
+          Namn
+          <input id="nameIn" type="text" placeholder="För- och efternamn" required>
+        </label>
+        <label>
+          Personnummer
+          <input id="pnrIn" type="text" placeholder="ÅÅÅÅMMDD-XXXX" required>
+        </label>
+        <button type="submit">Spara</button>
+      </form>
+    </div>
+
+    <!-- Overlay med kortet -->
+    <div id="overlay">
+      <div class="card" onclick="bort()">
+        <img src="fullsize.jpg" alt="Större bild av kortet">
+        <div id="cardText" class="card-text">
+          <span id="nameOut"></span>
+          <span id="pnrOut"></span>
+        </div>
       </div>
+    </div>
   </main>
+
   <script src="script.js"></script>
+</body>
 </body>
 </html>
