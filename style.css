@@ -79,6 +79,7 @@
   max-height: 100vh;
   height: auto;
   width: auto;
+  background: black; 
 }
 
 /* --- Texten på kortet (samma vertikala position) --- */
