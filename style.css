@@ -36,11 +36,14 @@
 /* --- Overlay (svart bakgrund) --- */
 #overlay {
   position: fixed;
-  inset: 0;
-  background: black;           /* helsvart bakgrund */
-  display: none;               /* gömd initialt */
-  place-items: center;         /* centrerar innehållet */
-  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 #overlay.show { display: grid; }
