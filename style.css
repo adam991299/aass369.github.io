@@ -82,7 +82,7 @@
 
 /* --- Kortet --- */
 .card {
-  position: relative;            /* istället för fixed */
+  position: fixed;            /* istället för fixed */
   display: flex;
   justify-content: center;
   align-items: center;
