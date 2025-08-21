@@ -52,9 +52,9 @@
 #overlay {
   position: fixed;
   inset: 0;
-  background: black;           /* helsvart bakgrund */
-  display: none;               /* gömd initialt */
-  place-items: center;         /* centrerar innehållet */
+  background: #000;
+  display: none;
+  place-items: center;           /* centrerar kortet */
   z-index: 2000;
 }
 
@@ -82,10 +82,15 @@
 
 /* --- Kortet --- */
 .card {
-  position: fixed;
+  position: relative;            /* istället för fixed */
   display: flex;
-  max-width: 92vw;
-  max-height: 100vh; 
+  justify-content: center;
+  align-items: center;
+
+  max-width: 80vw;               /* gör kortet större – justera efter smak */
+  max-height: 80vh;
+  background: #000;
+  margin: auto;                  /* centrerar i overlayen */
   background: #000           /* lämna plats för formuläret */
 }
 
@@ -96,6 +101,7 @@
   height: auto;
   width: auto;
   background: black; 
+  transform: scale(1.1);   /* zooma in lite, ex 10% */
 }
 
 /* --- Texten på kortet (samma vertikala position) --- */
