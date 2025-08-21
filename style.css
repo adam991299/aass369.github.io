@@ -67,8 +67,8 @@
 
 /* --- Kortet --- */
 .card {
-  position: relative;
-  display: inline-block;
+  position: fixed;
+  display: flex;
   max-width: 92vw;
   max-height: 100vh;            /* lämna plats för formuläret */
 }
