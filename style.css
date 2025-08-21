@@ -54,7 +54,6 @@
   inset: 0;
   background: #000;
   display: none;
-  place-items: center;           /* centrerar kortet */
   z-index: 2000;
 }
 
