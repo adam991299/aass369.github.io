@@ -1,3 +1,18 @@
+    html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;                /* helsvart bakom allt */
+}
+
+/* Om du öppnar overlay: lås scroll (hindrar “vit stretch”-effekt) */
+  body.overlay-open {
+    overflow: hidden;
+  }
+
+    
+    
+    
     /* 1. Återställ marginaler */
     body { margin: 0; }
 
@@ -36,14 +51,11 @@
 /* --- Overlay (svart bakgrund) --- */
 #overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  z-index: 9999;
-  min-height: 100vh;
-  min-height: 100dvh;
+  inset: 0;
+  background: black;           /* helsvart bakgrund */
+  display: none;               /* gömd initialt */
+  place-items: center;         /* centrerar innehållet */
+  z-index: 2000;
 }
 
 #overlay.show { display: grid; }
@@ -73,7 +85,8 @@
   position: fixed;
   display: flex;
   max-width: 92vw;
-  max-height: 100vh;            /* lämna plats för formuläret */
+  max-height: 100vh; 
+  background: #000           /* lämna plats för formuläret */
 }
 
 .card img {
