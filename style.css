@@ -57,7 +57,7 @@
   z-index: 2000;
 }
 
-#overlay.show { display: grid; }
+#overlay.show { display:grid; place-items:center; }
 
 /* --- Inre wrapper (kort + formulär) --- */
 .card-wrap {
@@ -81,26 +81,22 @@
 
 /* --- Kortet --- */
 .card {
-  position: absolute;            /* istället för fixed */
+  position: relative;             /* istället för absolute */
   display: flex;
   justify-content: center;
   align-items: center;
-
-  max-width: 80vw;               /* gör kortet större – justera efter smak */
-  max-height: 80vh;
-  background: #000;
-  margin: auto;                  /* centrerar i overlayen */
-  background: #000           /* lämna plats för formuläret */
+  width: min(80vw, 600px);
+  height: min(80vh, 900px);
+  background:#000;
 }
 
 .card img {
-  display: block;
-  max-width: 100%;
-  max-height: 100vh;
-  height: auto;
-  width: auto;
-  background: black; 
-  transform: scale(1.1);   /* zooma in lite, ex 10% */
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit: contain;   /* passa in i kortets box */
+  transform: scale(1.1); /* liten inzoomning */
+  background:#000;
 }
 
 /* --- Texten på kortet (samma vertikala position) --- */
